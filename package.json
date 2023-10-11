@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-2d",
+  "version": "1.0.0",
+  "description": "Portfolio website in a form of 2D brawser game",
+  "main": "index.js",
+  "scripts": {
+    "serve": "browser-sync start --server 'src' --files 'src' --port 4200"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lebedevaanastasiya/portfolio-2d.git"
+  },
+  "keywords": [
+    "portfolio",
+    "2d"
+  ],
+  "author": "Anastasiya Lebedzeva",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/lebedevaanastasiya/portfolio-2d/issues"
+  },
+  "homepage": "https://github.com/lebedevaanastasiya/portfolio-2d#readme",
+  "dependencies": {
+    "pixi.js": "^7.3.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  }
+}
