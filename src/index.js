@@ -5,15 +5,47 @@ const app = new PIXI.Application({
 
 document.body.append(app.view);
 
-const me = PIXI.Sprite.from("./assets/me.png");
+let keys = {};
 
-me.anchor.set(0.5);
+const player = PIXI.Sprite.from("./assets/player.jpg");
 
-me.x = app.screen.width / 2;
-me.y = app.screen.height / 2;
+player.anchor.set(0.5);
 
-app.stage.addChild(me);
+player.x = app.screen.width / 2;
+player.y = app.screen.height / 2;
 
-app.ticker.add((delta) => {
-  me.rotation += 0.1 * delta;
-});
+app.stage.addChild(player);
+
+app.ticker.add(gameLoop);
+
+window.addEventListener("keydown", onKeyDown);
+window.addEventListener("keyup", onKeyUp);
+
+function onKeyDown(e) {
+  keys[e.keyCode] = true;
+  // console.log(e.keyCode);
+}
+
+function onKeyUp(e) {
+  keys[e.keyCode] = false;
+}
+
+function gameLoop(delta) {
+  if (keys["39"] /* -> */) {
+    if (player.x + 5 + 32 <= app.screen.width) {
+      player.x += 5;
+    }
+  }
+
+  if (keys["37"] /* <- */) {
+    if (player.x - 5 - 32 >= 0) {
+      player.x -= 5;
+    }
+  }
+
+  if (keys["82"] /* r */) {
+    if (player.x - 5 - 32 >= 0) {
+      player.rotation += 0.1 * delta;
+    }
+  }
+}
