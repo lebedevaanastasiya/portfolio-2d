@@ -4,7 +4,7 @@
   "description": "Portfolio website in a form of 2D brawser game",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start --server 'src' --files 'src' --port 4200"
+    "serve": "browser-sync start --server --files '*.html' '*.js' --port 4200"
   },
   "repository": {
     "type": "git",

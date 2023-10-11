@@ -23,7 +23,6 @@ window.addEventListener("keyup", onKeyUp);
 
 function onKeyDown(e) {
   keys[e.keyCode] = true;
-  // console.log(e.keyCode);
 }
 
 function onKeyUp(e) {
