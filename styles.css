@@ -1,0 +1,15 @@
+button.control {
+  height: 100px;
+  width: 100px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#game-controls {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 32px;
+}

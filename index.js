@@ -27,7 +27,6 @@ function onKeyUp(e) {
 
 // Handling touch screen player controls
 const buttonArrowRight = document.getElementById("arrow-right");
-console.log("buttonArrowRight", buttonArrowRight);
 buttonArrowRight.addEventListener("touchstart", onArrowRightTouchStart);
 buttonArrowRight.addEventListener("touchend", onArrowRightTouchEnd);
 
@@ -37,6 +36,18 @@ function onArrowRightTouchStart() {
 
 function onArrowRightTouchEnd() {
   onKeyUp({ keyCode: 39 });
+}
+
+const buttonArrowLeft = document.getElementById("arrow-left");
+buttonArrowLeft.addEventListener("touchstart", onArrowLeftTouchStart);
+buttonArrowLeft.addEventListener("touchend", onArrowLeftTouchEnd);
+
+function onArrowLeftTouchStart() {
+  onKeyDown({ keyCode: 37 });
+}
+
+function onArrowLeftTouchEnd() {
+  onKeyUp({ keyCode: 37 });
 }
 
 // Main game loop
