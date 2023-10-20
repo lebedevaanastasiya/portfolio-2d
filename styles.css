@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 button.control {
   height: 100px;
   width: 100px;
