@@ -1,23 +1,19 @@
+// Initialize Pixi view
 const app = new PIXI.Application({
   background: "#dedffa",
   resizeTo: window,
 });
-
 document.body.append(app.view);
 
-let keys = {};
-
+// create player and position on on the scene
 const player = PIXI.Sprite.from("./assets/player.jpg");
-
 player.anchor.set(0.5);
-
 player.x = app.screen.width / 2;
 player.y = app.screen.height / 2;
-
 app.stage.addChild(player);
 
-app.ticker.add(gameLoop);
-
+// Handling keyboard player controls
+let keys = {};
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 
@@ -28,6 +24,23 @@ function onKeyDown(e) {
 function onKeyUp(e) {
   keys[e.keyCode] = false;
 }
+
+// Handling touch screen player controls
+const buttonArrowRight = document.getElementById("arrow-right");
+console.log("buttonArrowRight", buttonArrowRight);
+buttonArrowRight.addEventListener("touchstart", onArrowRightTouchStart);
+buttonArrowRight.addEventListener("touchend", onArrowRightTouchEnd);
+
+function onArrowRightTouchStart() {
+  onKeyDown({ keyCode: 39 });
+}
+
+function onArrowRightTouchEnd() {
+  onKeyUp({ keyCode: 39 });
+}
+
+// Main game loop
+app.ticker.add(gameLoop);
 
 function gameLoop(delta) {
   if (keys["39"] /* -> */) {
